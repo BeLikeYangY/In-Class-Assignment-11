@@ -23,7 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<Item> mDataset;
     private Context context;
 
-    public MyAdapter(ArrayList<Item> myDataset,Context context) {
+    public MyAdapter(ArrayList<Item> myDataset, Context context) {
         mDataset = myDataset;
         this.context = context;
     }

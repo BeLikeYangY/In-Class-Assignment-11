@@ -1,9 +1,13 @@
 package com.example.android.inclassassignment11_yangy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +51,25 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item(getString(R.string.item_seven_title),getString(R.string.item_seven_desc),R.drawable.image_seven));
         itemList.add(new Item(getString(R.string.item_eight_title),getString(R.string.item_eight_desc),R.drawable.image_eight));
         itemList.add(new Item(getString(R.string.item_nine_title),getString(R.string.item_nine_desc),R.drawable.image_nine));
-        itemList.add(new Item(getString(R.string.item_ten_title),getString(R.string.item_ten_desc),R.drawable.image_ten));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.edit_menu:
+                itemList.add(new Item(getString(R.string.item_ten_title),getString(R.string.item_ten_desc),R.drawable.image_ten));
+                adapter.notifyItemInserted(itemList.size() - 1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
